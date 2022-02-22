@@ -4,14 +4,15 @@ import { Pop } from "../Utils/Pop.js";
 
 function _drawQuestions() {
     let template = ""
-    ProxyState.questions.forEach(q => template += q.Template)
+    // ProxyState.questions.forEach(q => template += q.Template)
+    template += ProxyState.questions[0].Template
     document.getElementById("questions").innerHTML = template
 }
 
 export class QuestionsController {
     constructor() {
         ProxyState.on("questions", _drawQuestions)
-        _drawQuestions()
+     
         this.getQuestions()
     }
 async getQuestions() {
